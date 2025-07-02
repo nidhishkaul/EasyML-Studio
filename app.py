@@ -4,13 +4,13 @@ import openpyxl
 import pickle
 from modules import data_cleaning, eda, visualization, run_query, model_trainer
 
-st.set_page_config(page_title="DataAnalysisMadeEasy", layout="wide")
+st.set_page_config(page_title="EasyML Studio", layout="wide")
 
-st.title("📊 EasyDA")
-st.subheader("Your one-stop solution for data analysis!")
+st.title("📊 EasyML Studio")
+st.subheader("No Code Data Analysis & Machine Learning Platform!")
 
-st.write("Welcome to EasyDA! This app simplifies data analysis with a user-friendly interface.")
-st.write("Upload your dataset, perform data cleaning, and visualize your data effortlessly.")
+st.write("Welcome to EasyML Studio! This app simplifies data analysis and machine learning with a user-friendly interface.")
+st.write("Upload your dataset, perform data cleaning, and get your model trained effortlessly.")
 st.write("Use the tabs below to navigate through different features.")
 
 # Tabs for different sections
@@ -18,13 +18,13 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "📁 Upload", "🧹 Data Cleaning", "📊 EDA", "📈 Visualization", "🧮 Work with SQL", "🧠 Model Training"
  ])
 
-# File upload once
+# File upload
 with st.sidebar:
     uploaded_file = st.file_uploader("Upload your dataset", type=['csv', 'xlsx'])
 
     if st.button("🔄 Reset Session"):
         st.session_state.clear()
-        st.experimental_rerun()
+        st.rerun()
 
 if uploaded_file and "raw_df" not in st.session_state:
     if uploaded_file.name.endswith('.csv'):
